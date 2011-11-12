@@ -2,6 +2,7 @@
 
 ## Requirements
 
+- Git
 - PHP >= 5.3
 - CURL extension for PHP
 - a Mailjet account with your apiKey and apiSecret (subscribe at http://www.mailjet.com/)
@@ -12,8 +13,7 @@
 
 After cloning or downloading this library, just hit your favorite terminal with :
 
-    $ cd Mailjet
-    $ bin/install_vendors.sh
+    $ cd Mailjet && git submodule update --init
 
 ### Autoload
 

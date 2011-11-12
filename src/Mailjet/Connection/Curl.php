@@ -43,15 +43,7 @@ class Curl extends HttpConnection
         $curlErrorMessage = curl_error($ch);
         
         curl_close($ch);
-        
-//        echo '$url : '.$url;
-//        echo '$params'."\n";
-//        var_dump($params);
-//        echo('$response : '.$response."\n");
-//        echo('$responseCode : '.$responseCode."\n");
-//        echo('$curlErrorNumber : '.$curlErrorNumber."\n");
-//        echo('$curlErrorMessage : '.$curlErrorMessage."\n");
-        
+                
         if (!in_array($responseCode, array(0, 200, 201, 204))) {
             throw new ConnectionException(null, (int)$responseCode);
         }
