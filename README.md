@@ -1,9 +1,8 @@
-# Mailjet API implementation for PHP 5.3
+# Mailjet API wrapper for PHP 5.3
 
 ## Requirements
 
-- Git
-- PHP >= 5.3
+- PHP >= 5.3.2
 - CURL extension for PHP
 - a Mailjet account with your apiKey and apiSecret (subscribe at http://www.mailjet.com/)
 
@@ -13,21 +12,14 @@
 
 After cloning or downloading this library, just hit your favorite terminal with :
 
-    $ cd Mailjet && git submodule update --init
+    $ curl -s http://getcomposer.org/installer | php
+    $ php composer.phar install
 
 ### Autoload
 
-This library is using PSR-0 autoloading conventions helped by the ClassLoader Symfony Component :
+This library is using PSR-0 autoloading conventions helped by the Composer :
 
-    require_once __DIR__.'/../vendor/Symfony/Component/ClassLoader/UniversalClassLoader.php';
-
-    use Symfony\Component\ClassLoader\UniversalClassLoader;
-
-    $loader = new UniversalClassLoader();
-    $loader->registerNamespaces(array(
-        'Mailjet'  => path/to/Mailjet/src',
-    ));
-    $loader->register();
+    require_once path/to/vendor/.composer/autoload.php';
 
 ### Create a Connection
 
