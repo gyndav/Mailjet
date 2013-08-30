@@ -2,7 +2,7 @@
 
 ## Requirements
 
-- PHP >= 5.3.2
+- PHP >= 5.3.3
 - CURL extension for PHP
 - a Mailjet account with your apiKey and apiSecret (subscribe at http://www.mailjet.com/)
 
