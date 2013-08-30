@@ -6,21 +6,21 @@ use Mailjet\Api;
 
 /**
  * Methods of Mailjet contact API
- * 
+ *
  * @author dguyon <dguyon@gmail.com>
  */
 class Contact extends Api
 {
     /**
      * Get all your contacts
-     * 
+     *
      * @param int $mj_contact_id
      * @param timestamp $last_activity
      * @param type $blocked
      * @param string $status opened|blocked
      * @param int $start
      * @param int $limit
-     * @return array 
+     * @return array
      */
     public function getList($mj_contact_id = '', $last_activity = '', $blocked = '', $status = '', $start = 0, $limit = 100)
     {
@@ -33,14 +33,14 @@ class Contact extends Api
             'limit' => $limit
         ));
     }
-    
+
     /**
      * Get the openers list from all your contacts
-     * 
+     *
      * @param timestamp $last_activity
      * @param int $start
      * @param int $limit
-     * @return array 
+     * @return array
      */
     public function getOpeners($last_activity = '', $start = 0, $limit = 100)
     {

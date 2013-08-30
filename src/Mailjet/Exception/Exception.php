@@ -4,15 +4,15 @@ namespace Mailjet\Exception;
 
 /**
  * Mailjet API Exception class
- * 
+ *
  * @author dguyon <dguyon@gmail.com>
  */
 class Exception extends \Exception
 {
     /**
      * List of codes returned by Mailjet API
-     * 
-     * @var $statusCodes array 
+     *
+     * @var $statusCodes array
      */
     protected static $statusCodes = array(
         0 => 'OK',
@@ -26,19 +26,19 @@ class Exception extends \Exception
         405 => 'Method Not Allowed',
         500 => 'Internal Server Error',
     );
-    
+
     /**
      * Constructor
-     * 
+     *
      * @param string $message
-     * @param int $code 
+     * @param int $code
      */
     public function __construct($message = null, $code = null, Exception $previous = null)
     {
         if ($message === null && $code !== null && isset(self::$statusCodes[$code])) {
             $message = self::$statusCodes[$code];
         }
-        
+
         parent::__construct($message, $code, $previous);
     }
 }

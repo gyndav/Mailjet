@@ -6,17 +6,17 @@ use Mailjet\Api;
 
 /**
  * Methods of Mailjet lists API
- * 
+ *
  * @author dguyon <dguyon@gmail.com>
  */
 class Lists extends Api
 {
     /**
      * Get all your contact lists
-     * 
+     *
      * @param int $start
      * @param int $limit
-     * @return array 
+     * @return array
      */
     public function getAll($start = 0, $limit = 100)
     {
@@ -25,12 +25,12 @@ class Lists extends Api
             'limit' => $limit
         ));
     }
-    
+
     /**
      * Recover the Email address of your list
-     * 
+     *
      * @param int $id
-     * @return array 
+     * @return array
      */
     public function getEmail($id)
     {
@@ -38,12 +38,12 @@ class Lists extends Api
             'id' => $id
         ));
     }
-    
+
     /**
      * Get all statistics relative to one of your lists
-     * 
+     *
      * @param int $id
-     * @return array 
+     * @return array
      */
     public function getStatistics($id)
     {
@@ -51,10 +51,10 @@ class Lists extends Api
             'id' => $id
         ));
     }
-    
+
     /**
      * Get all your contacts from one particular list
-     * 
+     *
      * @param int $id
      * @param timestamp $last_activity
      * @param int $start
@@ -62,7 +62,7 @@ class Lists extends Api
      * @param type $blocked
      * @param type $unsub
      * @param string $status opened|blocked
-     * @return array 
+     * @return array
      */
     public function getContacts($id = '', $last_activity = '', $start = 0, $limit = 100, $blocked = '', $unsub = '', $status = '')
     {
@@ -76,10 +76,10 @@ class Lists extends Api
             'status' => $status,
         ));
     }
-    
+
     /**
      * Create a new list
-     * 
+     *
      * @param string $name
      * @param string $label
      * @return int the created list_id
@@ -91,13 +91,13 @@ class Lists extends Api
             'label' => $label
         ));
     }
-    
+
     /**
      * List informations
-     * 
+     *
      * @param int $id
      * @param string $name
-     * @param string $label 
+     * @param string $label
      */
     public function update($id, $name, $label)
     {
@@ -107,10 +107,10 @@ class Lists extends Api
             'label' => $label
         ));
     }
-    
+
     /**
      * Delete a list
-     * 
+     *
      * @param int $id
      */
     public function delete($id)
@@ -119,10 +119,10 @@ class Lists extends Api
             'id' => $id
         ));
     }
-    
+
     /**
      * Add a new contact to a list
-     * 
+     *
      * @param int $id Mailjet list id
      * @param mixed $contact Mailjet contact id or email adresse
      */
@@ -133,10 +133,10 @@ class Lists extends Api
             'contact' => $contact
         ));
     }
-    
+
     /**
      * Remove one or all contact(s) from a list
-     * 
+     *
      * @param type $id Mailjet list id
      * @param mixed $contact Mailjet contact id or email adresse
      */
