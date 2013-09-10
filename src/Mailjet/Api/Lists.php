@@ -128,9 +128,25 @@ class Lists extends Api
      */
     public function addContact($id, $contact)
     {
-        return $this->post('addContact', array(
+        return $this->post('listsAddContact', array(
             'id' => $id,
             'contact' => $contact
+        ));
+    }
+
+    /**
+     * Add several new contacts to a list
+     *
+     * @param int $id Mailjet list id
+     * @param array $contacts of email address
+     */
+    public function addManyContacts($id, $contacts = array())
+    {
+        $contacts = implode(',', $contacts);
+
+        return $this->post('listsAddManyContacts', array(
+            'id' => $id,
+            'contacts' => $contacts
         ));
     }
 
@@ -142,9 +158,25 @@ class Lists extends Api
      */
     public function removeContact($id, $contact = '')
     {
-        return $this->post('removeContact', array(
+        return $this->post('listsRemoveContact', array(
             'id' => $id,
             'contact' => $contact
+        ));
+    }
+
+    /**
+     * Remove several contacts of a list
+     *
+     * @param int $id Mailjet list id
+     * @param array $contacts of email address
+     */
+    public function removeManyContacts($id, $contacts = array())
+    {
+        $contacts = implode(',', $contacts);
+
+        return $this->post('listsRemoveManyContacts', array(
+            'id' => $id,
+            'contacts' => $contacts
         ));
     }
 }
