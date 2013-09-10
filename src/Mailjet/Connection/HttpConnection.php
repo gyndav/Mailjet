@@ -13,10 +13,11 @@ abstract class HttpConnection implements ConnectionInterface
     protected $secretKey;
 
     protected $options = array(
-        'url' => ':protocol://api.mailjet.com/:version/:path',
+        'url'      => ':protocol://api.mailjet.com/:version/:path',
         'protocol' => 'http',
-        'version' => 0.1,
-        'output' => 'json',
+        'version'  => 0.1,
+        'output'   => 'json',
+        'strict'   => true
     );
 
     /**
@@ -27,7 +28,7 @@ abstract class HttpConnection implements ConnectionInterface
      */
     public function __construct($apiKey, $secretKey)
     {
-        $this->apiKey = $apiKey;
+        $this->apiKey    = $apiKey;
         $this->secretKey = $secretKey;
     }
 
@@ -88,9 +89,11 @@ abstract class HttpConnection implements ConnectionInterface
         $queryParams = array('output' => $this->options['output']);
         $queryParams = array_merge($params, $queryParams);
 
-        $encodedResponse = $this->request($url, $queryParams, $method);
+        $response = $this->request($url, $queryParams, $method);
+        $encodedResponse = $response['response'];
 
         $decodedResponse = $this->decodeResponse($encodedResponse, $this->options['output']);
+        $decodedResponse['code'] = $response['code'];
 
         return $decodedResponse;
     }
@@ -116,5 +119,8 @@ abstract class HttpConnection implements ConnectionInterface
         }
     }
 
+    /**
+     * @return array with response and response code keys
+     */
     abstract protected function request($url, array $params = array(), $method = 'GET');
 }
