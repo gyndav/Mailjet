@@ -11,6 +11,9 @@ use Mailjet\Exception\Exception as ConnectionException;
  */
 class Curl extends HttpConnection
 {
+    private $strictCode     = array(0, 200, 201, 204);
+    private $permissiveCode = array(304);
+
     /**
      * Execute a cURL request to Mailjet API
      *
@@ -44,7 +47,12 @@ class Curl extends HttpConnection
 
         curl_close($ch);
 
-        if (!in_array($responseCode, array(0, 200, 201, 204))) {
+        $acceptedCode = ($this->options['strict'])
+            ? $this->strictCode
+            : array_merge($this->strictCode, $this->permissiveCode)
+        ;
+
+        if (!in_array($responseCode, $acceptedCode)) {
             throw new ConnectionException(null, (int)$responseCode);
         }
 
@@ -52,6 +60,6 @@ class Curl extends HttpConnection
             throw new ConnectionException($curlErrorMessage, (int)$curlErrorNumber);
         }
 
-        return $response;
+        return array('response' => $response, 'code' => $responseCode);
     }
 }
