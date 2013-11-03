@@ -47,3 +47,6 @@ Instanciate an API is like :
 ## Credits
 
 Credits goes to J.Wage as an inspiration for classes structure.
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/dguyon/mailjet/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
