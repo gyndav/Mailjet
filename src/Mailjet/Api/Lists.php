@@ -14,8 +14,8 @@ class Lists extends Api
     /**
      * Get all your contact lists
      *
-     * @param int $start
-     * @param int $limit
+     * @param  int   $start
+     * @param  int   $limit
      * @return array
      */
     public function getAll($start = 0, $limit = 100)
@@ -29,7 +29,7 @@ class Lists extends Api
     /**
      * Recover the Email address of your list
      *
-     * @param int $id
+     * @param  int   $id
      * @return array
      */
     public function getEmail($id)
@@ -42,7 +42,7 @@ class Lists extends Api
     /**
      * Get all statistics relative to one of your lists
      *
-     * @param int $id
+     * @param  int   $id
      * @return array
      */
     public function getStatistics($id)
@@ -55,13 +55,13 @@ class Lists extends Api
     /**
      * Get all your contacts from one particular list
      *
-     * @param int $id
-     * @param timestamp $last_activity
-     * @param int $start
-     * @param int $limit
-     * @param type $blocked
-     * @param type $unsub
-     * @param string $status opened|blocked
+     * @param  int       $id
+     * @param  timestamp $last_activity
+     * @param  int       $start
+     * @param  int       $limit
+     * @param  type      $blocked
+     * @param  type      $unsub
+     * @param  string    $status        opened|blocked
      * @return array
      */
     public function getContacts($id = '', $last_activity = '', $start = 0, $limit = 100, $blocked = '', $unsub = '', $status = '')
@@ -80,9 +80,9 @@ class Lists extends Api
     /**
      * Create a new list
      *
-     * @param string $name
-     * @param string $label
-     * @return int the created list_id
+     * @param  string $name
+     * @param  string $label
+     * @return int    the created list_id
      */
     public function create($name, $label)
     {
@@ -95,7 +95,7 @@ class Lists extends Api
     /**
      * List informations
      *
-     * @param int $id
+     * @param int    $id
      * @param string $name
      * @param string $label
      */
@@ -123,7 +123,7 @@ class Lists extends Api
     /**
      * Add a new contact to a list
      *
-     * @param int $id Mailjet list id
+     * @param int   $id      Mailjet list id
      * @param mixed $contact Mailjet contact id or email adresse
      */
     public function addContact($id, $contact)
@@ -137,7 +137,7 @@ class Lists extends Api
     /**
      * Add several new contacts to a list
      *
-     * @param int $id Mailjet list id
+     * @param int   $id       Mailjet list id
      * @param array $contacts of email address
      */
     public function addManyContacts($id, $contacts = array())
@@ -153,7 +153,7 @@ class Lists extends Api
     /**
      * Remove one or all contact(s) from a list
      *
-     * @param type $id Mailjet list id
+     * @param type  $id      Mailjet list id
      * @param mixed $contact Mailjet contact id or email adresse
      */
     public function removeContact($id, $contact = '')
@@ -167,7 +167,7 @@ class Lists extends Api
     /**
      * Remove several contacts of a list
      *
-     * @param int $id Mailjet list id
+     * @param int   $id       Mailjet list id
      * @param array $contacts of email address
      */
     public function removeManyContacts($id, $contacts = array())

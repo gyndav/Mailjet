@@ -17,9 +17,9 @@ class Curl extends HttpConnection
     /**
      * Execute a cURL request to Mailjet API
      *
-     * @param string $url
-     * @param array $params
-     * @param string $method http method
+     * @param  string $url
+     * @param  array  $params
+     * @param  string $method http method
      * @return string the Mailjet API response
      */
     public function request($url, array $params = array(), $method = 'GET')
@@ -53,11 +53,11 @@ class Curl extends HttpConnection
         ;
 
         if (!in_array($responseCode, $acceptedCode)) {
-            throw new ConnectionException(null, (int)$responseCode);
+            throw new ConnectionException(null, (int) $responseCode);
         }
 
         if (!empty($curlErrorNumber)) {
-            throw new ConnectionException($curlErrorMessage, (int)$curlErrorNumber);
+            throw new ConnectionException($curlErrorMessage, (int) $curlErrorNumber);
         }
 
         return array('response' => $response, 'code' => $responseCode);

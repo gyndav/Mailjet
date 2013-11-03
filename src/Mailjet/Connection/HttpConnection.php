@@ -35,7 +35,7 @@ abstract class HttpConnection implements ConnectionInterface
     /**
      * Change Mailjet default options
      *
-     * @param string $key the key
+     * @param string $key   the key
      * @param string $value the value associated to the key
      */
     public function setOption($key, $value)
@@ -48,8 +48,8 @@ abstract class HttpConnection implements ConnectionInterface
     /**
      * Perform a GET request
      *
-     * @param string $path
-     * @param array $params
+     * @param  string $path
+     * @param  array  $params
      * @return array
      */
     public function get($path, array $params = array())
@@ -60,8 +60,8 @@ abstract class HttpConnection implements ConnectionInterface
     /**
      * Perform a POST request
      *
-     * @param string $path
-     * @param array $params
+     * @param  string $path
+     * @param  array  $params
      * @return array
      */
     public function post($path, array $params = array())
@@ -72,9 +72,9 @@ abstract class HttpConnection implements ConnectionInterface
     /**
      * Build final request
      *
-     * @param string $path
-     * @param array $params
-     * @param string $method
+     * @param  string $path
+     * @param  array  $params
+     * @param  string $method
      * @return array
      */
     public function execute($path, array $params = array(), $method = 'GET')
@@ -101,7 +101,7 @@ abstract class HttpConnection implements ConnectionInterface
     /**
      * Decode Mailjet API response
      *
-     * @param mixed $encodedResponse
+     * @param  mixed $encodedResponse
      * @return mixed
      */
     public function decodeResponse($encodedResponse)
@@ -111,6 +111,7 @@ abstract class HttpConnection implements ConnectionInterface
                 return json_decode($encodedResponse, true);
             case 'php':
                 eval('$decodedResponse = '.$encodedResponse.';');
+
                 return $response;
             case 'serialize':
                 return unserialize($encodedResponse);

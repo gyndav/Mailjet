@@ -36,8 +36,8 @@ class Api
     /**
      * Call a path with GET method
      *
-     * @param string $path
-     * @param array $params
+     * @param  string $path
+     * @param  array  $params
      * @return array
      */
     public function get($path, array $params = array())
@@ -48,8 +48,8 @@ class Api
     /**
      * Call a path with POST method
      *
-     * @param string $url
-     * @param array $params
+     * @param  string $url
+     * @param  array  $params
      * @return array
      */
     public function post($path, array $params = array())
@@ -60,11 +60,11 @@ class Api
     /**
      * List all your apiKeys available
      *
-     * @param bool $active
+     * @param  bool  $active
      * @return array
      */
     public function getKeyList($active = true)
     {
-        return $this->get('apiKeyList', array('active' => (int)$active));
+        return $this->get('apiKeyList', array('active' => (int) $active));
     }
 }

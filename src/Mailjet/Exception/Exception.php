@@ -31,7 +31,7 @@ class Exception extends \Exception
      * Constructor
      *
      * @param string $message
-     * @param int $code
+     * @param int    $code
      */
     public function __construct($message = null, $code = null, Exception $previous = null)
     {
